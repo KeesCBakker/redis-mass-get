@@ -28,7 +28,8 @@ setup(
     entry_points={
         "console_scripts": [
             "redis_mass_get=redis_mass_get.__main__:main",
-            "rmg=redis_mass_get.__main__:main"
+            "rmg=redis_mass_get.__main__:main",
+            "rmg=redis-mass-get.__main__:main"
         ]
     },
 )
