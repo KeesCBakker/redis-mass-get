@@ -184,3 +184,17 @@ def test_txt(temp_file:str, mocked_redis: MockedRedis, query:RedisQuery):
         'product:c',
         '33'
     ]
+
+
+def test_query_json(mocked_redis: MockedRedis, query: RedisQuery):
+    mocked_redis.add({
+        'product:a': '{ "name": "kaas" }',
+        'product:b': '{ "name": "kees" }',
+        'product:c': '{ "name": "koos" }',
+        'something-else': '{ "name": "kies" }',
+    })
+
+    data = query.json("product:b")
+    assert len(data) == 1
+    assert data[0][0] == "product:b"
+    assert data[0][1]['name'] == "kees"
