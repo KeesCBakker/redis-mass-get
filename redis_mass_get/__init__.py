@@ -1,4 +1,4 @@
-__version__ = "0.0.35"
+__version__ = "0.0.1"
 
 __all__ = ['RedisQuery', 'CsvProcessor', 'JsonProcessor',
            'MemoryProcessor', 'TextProcessor']
