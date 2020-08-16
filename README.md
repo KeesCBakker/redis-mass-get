@@ -54,14 +54,17 @@ data = q.query("prefix*")
 # [(key1, value1), (key2, value2)]
 
 # write data to file
-q.
+# TXT:
+q.query_and_write_csv(self, "prefix*", "my.file.path.txt")
 
+# CSV:
+q.query_and_write_csv(self, "*postfix", "my.file.path.csv")
 
-
-# singularize will return the result or None
-assert singularize("kazen") == "kaas"
-assert singularize("kaas") == None
+# JSON
+q.query_and_write_csv(self, "*contains*", "my.file.path.csv", parse_value_as_json=True)
 ```
+
+You could also write your own implementation of `ProcessorBase` and call `query_with_processor`.
 
 
 ## Development
