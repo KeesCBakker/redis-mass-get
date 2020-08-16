@@ -1,6 +1,7 @@
-from typing import Tuple
+from typing import Tuple, Any
 
 from redis import StrictRedis
+import json
 
 from .processors.CsvProcessor import CsvProcessor
 from .processors.JsonProcessor import JsonProcessor
@@ -29,6 +30,8 @@ class RedisQuery:
         if self.__verbose:
             p(msg, end=end)
 
+    def json(self, key) -> [Tuple[str, Any]]:
+        return [ (k, json.loads(v)) for (k,v) in self.query(key)]
 
     def query(self, key) -> [Tuple[str, str]]:
         m = MemoryProcessor()
