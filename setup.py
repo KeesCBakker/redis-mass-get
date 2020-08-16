@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="redis-mass-get",
-    version="0.0.3",
+    version="0.0.2",
     description="Queries KEYS from Redis and performans an efficient MGET. Helps with querying your Redis.",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -29,7 +29,7 @@ setup(
         "console_scripts": [
             "redis_mass_get=redis_mass_get.__main__:main",
             "rmg=redis_mass_get.__main__:main",
-            "rmg=redis-mass-get.__main__:main"
+            "redis-mass-get=redis_mass_get.__main__:main"
         ]
     },
 )
