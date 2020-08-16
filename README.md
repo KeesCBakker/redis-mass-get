@@ -5,16 +5,15 @@ Queries your Redis using KEYS and MGET to write the key/value to the _stdout_ or
 
 ## Installation
 Install from PIP:
-```
+```bash
 pip install dutch-pluralizer
 ```
 
 
 ### CLI usage
 The project can be used as a CLI tool:
-```
-
-usage: redis_mass_get [-h] [-q] [-f {text,csv,json}] [-d DESTINATION] [-jd]
+```txt
+usage: redis-mass-get [-h] [-q] [-f {text,csv,json}] [-d DESTINATION] [-jd]
                       [-c CHUNCKS]
                       url key
 
@@ -38,6 +37,9 @@ optional arguments:
   -c CHUNCKS, --chuncks CHUNCKS
                         How many keys should be queried at once? Default is 10,000.
 ```
+
+The alias `rmg` or `redis_mass_get` will work as well in the console.
+
 
 ### API
 The API can be used like this:
