@@ -5,16 +5,15 @@ Queries your Redis using KEYS and MGET to write the key/value to the _stdout_ or
 
 ## Installation
 Install from PIP:
-```
-pip install dutch-pluralizer
+```bash
+pip install redis-mass-get
 ```
 
 
 ### CLI usage
 The project can be used as a CLI tool:
-```
-
-usage: redis_mass_get [-h] [-q] [-f {text,csv,json}] [-d DESTINATION] [-jd]
+```txt
+usage: redis-mass-get [-h] [-q] [-f {text,csv,json}] [-d DESTINATION] [-jd]
                       [-c CHUNCKS]
                       url key
 
@@ -38,6 +37,9 @@ optional arguments:
   -c CHUNCKS, --chuncks CHUNCKS
                         How many keys should be queried at once? Default is 10,000.
 ```
+
+The alias `rmg` or `redis_mass_get` will work as well in the console.
+
 
 ### API
 The API can be used like this:
@@ -68,6 +70,7 @@ You could also write your own implementation of `ProcessorBase` and call `query_
 
 
 ## Development
-If you want to contribute to local development, please consult <a href="https://github.com/KeesCBakker/redis-mass-get/blob/master/DEV.md">the local development page</a>.
+If you want to contribute to local development, please consult <a href="https://github.com/KeesCBakker/redis-mass-get/blob/master/DEV.md">the local development page</a>. More information
+on the reasoning behind this package can be found at this blog: <a href="https://keestalkstech.com/2020/08/reading-multiple-key-values-from-redis/">Reading multiple key/values from Redis</a>.
 
 
