@@ -7,14 +7,16 @@ from .TextProcessor import TextProcessor
 
 class CsvProcessor(TextProcessor):
 
-    def __init__(self, file: str):
+    def __init__(self, file: str, omit_csv_header:bool = False):
         super().__init__(file)
+        self.__omit_csv_header = omit_csv_header
 
     def open_stream(self):
         super().open_stream()
         fieldnames = ['key', 'value']
         self.__writer = DictWriter(self._destination, fieldnames=fieldnames)
-        self.__writer.writeheader()
+        if not self.__omit_csv_header:
+            self.__writer.writeheader()
 
     def process(self, data: [Tuple[str, str]]):
 
