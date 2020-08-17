@@ -6,7 +6,7 @@ Queries your Redis using KEYS and MGET to write the key/value to the _stdout_ or
 ## Installation
 Install from PIP:
 ```bash
-pip install dutch-pluralizer
+pip install redis-mass-get
 ```
 
 
