@@ -13,14 +13,9 @@ pip install redis-mass-get
 ### CLI usage
 The project can be used as a CLI tool:
 ```txt
-usage: redis-mass-get [-h] [-q] [-f {text,csv,json}] [-d DESTINATION] [-jd]
-                      [-c CHUNCKS]
-                      url key
+usage: redis-mass-get [-h] [-q] [-f {text,csv,json}] [-d DESTINATION] [-jd] [-c CHUNCKS] [-och] url key
 
-Queries Redis using KEYS and MGET. This will efficiently retreive all keys and     
-values. They can be stored/visualized in different modes: - text (default): odd    
-lines are keys, even lines values - csv: comma-seperated format with aopen_stream -
-json: JSON-array. Use -jd to decode the JSON value.
+Queries Redis using KEYS and MGET. This will efficiently retreive all keys and values. They can be stored/visualized in different modes: - text (default): odd lines are keys, even lines values. - csv: comma-separated format. - json: JSON-array. Use -jd to decode the JSON value.
 
 positional arguments:
   url                   Full Redis URL.
@@ -36,6 +31,8 @@ optional arguments:
   -jd, --json_decode    Enables JSON decode when writing to JSON.
   -c CHUNCKS, --chuncks CHUNCKS
                         How many keys should be queried at once? Default is 10,000.
+  -och, --omit_csv_header
+                        Don't render a CSV header.
 ```
 
 The alias `rmg` or `redis_mass_get` will work as well in the console.
