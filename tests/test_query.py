@@ -103,6 +103,26 @@ def test_csv(temp_file:str, mocked_redis: MockedRedis, query:RedisQuery):
         'product:c,33'
     ]
 
+def test_csv_omit_header(temp_file:str, mocked_redis: MockedRedis, query:RedisQuery):
+    mocked_redis.add({
+        'product:a': '11',
+        'product:b': '22',
+        'product:c': '33',
+        'something-else': '44'
+    })
+
+    with CsvProcessor(temp_file, omit_csv_header=True) as p:
+        query.query_with_processor("product:", p)
+
+    with open(temp_file, "r") as f:
+        lines = f.read().splitlines()
+
+    assert lines ==  [
+        'product:a,11',
+        'product:b,22',
+        'product:c,33'
+    ]
+
 
 def test_json(temp_file:str, mocked_redis: MockedRedis, query:RedisQuery):
 
