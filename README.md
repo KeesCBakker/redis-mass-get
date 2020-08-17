@@ -70,6 +70,7 @@ You could also write your own implementation of `ProcessorBase` and call `query_
 
 
 ## Development
-If you want to contribute to local development, please consult <a href="https://github.com/KeesCBakker/redis-mass-get/blob/master/DEV.md">the local development page</a>.
+If you want to contribute to local development, please consult <a href="https://github.com/KeesCBakker/redis-mass-get/blob/master/DEV.md">the local development page</a>. More information
+on the reasoning behind this package can be found at this blog: <a href="https://keestalkstech.com/2020/08/reading-multiple-key-values-from-redis/">Reading multiple key/values from Redis</a>.
 
 
