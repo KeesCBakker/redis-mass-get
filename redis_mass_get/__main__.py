@@ -23,9 +23,9 @@ def main():
     parser.add_argument("-d",  "--destination", help="Writes the output to a file.", default=None)
     parser.add_argument("-jd",  "--json_decode", help="Enables JSON decode when writing to JSON.", action="store_true")
     parser.add_argument("-c", "--chuncks", help="How many keys should be queried at once? Default is 10,000.", default=10000)
+    parser.add_argument("-och",  "--omit_csv_header", help="Don't render a CSV header.", action="store_true")
 
     args = parser.parse_args()
-    json_decode = args.json_decode
     destination = "stdout" if not args.destination else args.destination
     quiet = destination == "stdout" or args.quiet
 
@@ -38,8 +38,8 @@ def main():
             args.format = "txt"
 
     processor = (
-        CsvProcessor(destination) if args.format == "csv" else
-        JsonProcessor(destination, json_decode) if args.format == 'json' else
+        CsvProcessor(destination, args.omit_csv_header) if args.format == "csv" else
+        JsonProcessor(destination, args.json_decode) if args.format == 'json' else
         TextProcessor(destination)
     )
 
