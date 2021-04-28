@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: urllib3
+    versions:
+    - 1.26.4
+  - dependency-name: twine
+    versions:
+    - 3.4.0
+  - dependency-name: cryptography
+    versions:
+    - 3.3.2
+  - dependency-name: autopep8
+    versions:
+    - 1.5.5
